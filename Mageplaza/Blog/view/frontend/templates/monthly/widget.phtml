@@ -1,0 +1,31 @@
+<?php
+/**
+ * 
+ */
+/** @var \Mageplaza\Blog\Block\MonthlyArchive\Widget $block */
+$dateArrayCount = $block->getDateArrayCount();
+$dateArrayUnique = $block->getDateArrayUnique();
+$dateLabel = $block->getDateLabel();
+if ($block->isEnable() && $dateArrayUnique) : ?>
+    <div class="mp-sidebar mpcss">
+        <div class="row">
+            <div class="block-title col-xs-12 sidebar-archives">
+                <p class="block-mp-sidebar-heading" role="heading"
+                   aria-level="2"><?= __('Monthly Archive') ?></p>
+            </div>
+            <div class="col-xs-12">
+                <ul class="menu-archives">
+                    <?php for ($i = 0; $i < $block->getDateCount(); $i++) : ?>
+                        <li class="archive-item">
+                            <a class="list-archives"
+                               href="<?= $block->getMonthlyUrl(date("Y-m", $this->dateTime->timestamp($dateArrayUnique[$i]))) ?>">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;
+                                <?= $dateLabel[$i] . '   (' . $dateArrayCount[$i] . ')'; ?>
+                            </a>
+                        </li>
+                    <?php endfor; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,17 @@
+<?php
+/**
+ * 
+ */
+/** @var \Mageplaza\Blog\Model\ResourceModel\Post\Collection $posts */
+$posts = $block->getRelatedPostList();
+if ($posts) : ?>
+    <span><?= $posts->getSize() ? __('DESCRIPTION') : __('C’était fin 2014 et j’ai dit à Léo que je voulais dessiner notre 1er sac féminin. Je lui ai dit mon désir de créer un sac que je pourrais porter tous les jours, un sac que toutes les femmes que j’aime porteraient aussi. Je souhaitais dessiner un modèle que je pourrais garder des années.
+    	Il serait particulièrement féminin, avec une élégance naturelle. Sans artifice, ni complication. Ce serait le “sac de mes rêves”. Et peut être des vôtres aussi…') ?></span>
+    <p><br /><?= $posts->getSize() ? __('DESCRIPTION') : __('C’était fin 2014 et j’ai dit à Léo que je voulais dessiner notre 1er sac féminin. Je lui ai dit mon désir de créer un sac que je pourrais porter tous les jours, un sac que toutes les femmes que j’aime porteraient aussi. Je souhaitais dessiner un modèle que je pourrais garder des années.
+    	Il serait particulièrement féminin, avec une élégance naturelle. Sans artifice, ni complication. Ce serait le “sac de mes rêves”. Et peut être des vôtres aussi…') ?></p>
+    <ul>
+        <?php foreach ($posts as $post) : ?>
+            <li><a href="<?= $post->getUrl() ?>"><?= $post->getName(); ?></a></li>
+        <?php endforeach; ?>
+    </ul> 
+<?php endif; ?>
